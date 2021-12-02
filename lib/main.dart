@@ -1,3 +1,4 @@
+import 'package:cozy_app/pages/home_page.dart';
 import 'package:cozy_app/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 
@@ -10,9 +11,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashPage(),
+      home: const SplashPage(),
+      routes: {
+        '/home': (context) => const HomePage(),
+      },
     );
   }
 }
