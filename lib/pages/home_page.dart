@@ -1,5 +1,6 @@
 import 'package:cozy_app/theme.dart';
 import 'package:cozy_app/widgets/city_card.dart';
+import 'package:cozy_app/widgets/space_card.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -11,6 +12,9 @@ class HomePage extends StatelessWidget {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const SizedBox(
+            height: 30,
+          ),
           Text(
             'Explore Now',
             style: blackTextStyle.copyWith(
@@ -60,6 +64,7 @@ class HomePage extends StatelessWidget {
                     imgUrl: 'assets/city1.png',
                   ),
                   CityCard(
+                    isPopular: true,
                     name: 'Surabaya',
                     imgUrl: 'assets/city2.png',
                   ),
@@ -69,6 +74,61 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget recommendedSpace() {
+      return Container(
+        margin: const EdgeInsets.only(top: 30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Recommended Space',
+              style: blackTextStyle.copyWith(
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            const SpaceCard(
+              imgurl: 'assets/space1.png',
+              name: 'Kuretakeso Hott',
+              price: 52,
+              space: 'Banding, Indonesia',
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            const SpaceCard(
+              isPopular: true,
+              imgurl: 'assets/space2.png',
+              name: 'Kuretakeso Hott',
+              price: 52,
+              space: 'Banding, Indonesia',
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            const SpaceCard(
+              imgurl: 'assets/space3.png',
+              name: 'Kuretakeso Hott',
+              price: 52,
+              space: 'Banding, Indonesia',
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            const SpaceCard(
+              imgurl: 'assets/space3.png',
+              name: 'Kuretakeso Hott',
+              price: 52,
+              space: 'Banding, Indonesia',
             ),
           ],
         ),
@@ -88,6 +148,7 @@ class HomePage extends StatelessWidget {
               children: [
                 title(),
                 popularCities(),
+                recommendedSpace(),
               ],
             ),
           ],
