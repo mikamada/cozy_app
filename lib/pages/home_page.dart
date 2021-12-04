@@ -1,5 +1,6 @@
 import 'package:cozy_app/theme.dart';
 import 'package:cozy_app/widgets/city_card.dart';
+import 'package:cozy_app/widgets/custom_button_navigation_item.dart';
 import 'package:cozy_app/widgets/space_card.dart';
 import 'package:cozy_app/widgets/tips_card.dart';
 import 'package:flutter/material.dart';
@@ -180,9 +181,33 @@ class HomePage extends StatelessWidget {
             right: 24,
             bottom: 24,
           ),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 30,
+          ),
           width: double.infinity,
           height: 65,
-          color: greenColor,
+          decoration: BoxDecoration(
+            color: cardColor,
+            borderRadius: BorderRadius.circular(23),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              ItemButtonNavigation(
+                imgUrl: 'assets/Icon_home.png',
+                isActive: true,
+              ),
+              ItemButtonNavigation(
+                imgUrl: 'assets/Icon_mail.png',
+              ),
+              ItemButtonNavigation(
+                imgUrl: 'assets/Icon_card.png',
+              ),
+              ItemButtonNavigation(
+                imgUrl: 'assets/Icon_love.png',
+              ),
+            ],
+          ),
         ),
       );
     }
