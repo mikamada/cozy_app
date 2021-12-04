@@ -1,6 +1,7 @@
 import 'package:cozy_app/theme.dart';
 import 'package:cozy_app/widgets/city_card.dart';
 import 'package:cozy_app/widgets/space_card.dart';
+import 'package:cozy_app/widgets/tips_card.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -135,22 +136,79 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    Widget tips() {
+      return Container(
+        margin: const EdgeInsets.only(
+          top: 30,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Tips & Guidance',
+              style: blackTextStyle.copyWith(
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            const TipsCard(
+              name: 'City Guidelines',
+              imgUrl: 'assets/tips1.png',
+              tgl: 29,
+              bulan: 'Apr',
+            ),
+            const TipsCard(
+              name: 'Jakarta Fairship',
+              imgUrl: 'assets/tips2.png',
+              tgl: 11,
+              bulan: 'Dec',
+            ),
+            const SizedBox(
+              height: 100,
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget buttonNavigation() {
+      return Align(
+        alignment: Alignment.bottomCenter,
+        child: Container(
+          margin: const EdgeInsets.only(
+            left: 24,
+            right: 24,
+            bottom: 24,
+          ),
+          width: double.infinity,
+          height: 65,
+          color: greenColor,
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: whiteColor,
       body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 24,
-          ),
+        child: Stack(
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            ListView(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 24,
+              ),
               children: [
-                title(),
-                popularCities(),
-                recommendedSpace(),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    title(),
+                    popularCities(),
+                    recommendedSpace(),
+                    tips(),
+                  ],
+                ),
               ],
             ),
+            buttonNavigation(),
           ],
         ),
       ),
